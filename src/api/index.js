@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 // adding Helmet to enhance your API's security
-app.use(cors());
+// app.use(cors());
 app.use(helmet());
 // adding morgan to log HTTP requests
 app.use(morgan('combined'));

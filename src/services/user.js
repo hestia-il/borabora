@@ -87,7 +87,7 @@ const logout = async (cookies) => {
     }
 };
 
-const refreshToken = (cookies) => {
+const refreshToken = async (cookies) => {
     const refreshToken = cookies.JWT;
     const payload = redisStore.get(refreshToken);
 

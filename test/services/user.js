@@ -109,14 +109,17 @@ describe("services user service", () => {
             })
     });
 
-    it("refresh token success and returns token and refresh token in cookie", function () {
+    it("refresh token success and returns token and refresh token in cookie", function (done) {
 
-        let result = userService.refreshToken({
+        userService.refreshToken({
             "JWT": refreshToken
-        });
-        expect(result.response).to.have.property("token");
-        expect(result).to.have.property("cookie");
-        expect(result.cookie.name).to.equal("JWT");
+        })
+            .then(result => {
+                expect(result.response).to.have.property("token");
+                expect(result).to.have.property("cookie");
+                expect(result.cookie.name).to.equal("JWT");
+                done()
+            })
     });
 
     it("logout and returns response and remove cookie data", function (done) {

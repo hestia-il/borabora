@@ -31,7 +31,6 @@ router.post('/signin', (req, res) => {
 router.get('/token', (req, res) => {
     userService.refreshToken(req.cookies)
         .then(result => {
-
             if (result.cookie) {
                 let {name, val, opts} = result.cookie;
                 res.cookie(name, val, opts);
@@ -64,8 +63,10 @@ function formatResponse(r) {
     if (r.error) {
         let {message, code} = r.error;
         return {
-            message,
-            code
+            error: {
+                message,
+                code
+            }
         }
     }
     return r
