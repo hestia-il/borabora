@@ -1,9 +1,13 @@
 const express = require('express');
-const userRoutes = require('./routes/user');
 const cookieParser = require('cookie-parser');
 const helmet = require('helmet');
 const cors = require('cors');
 const morgan = require('morgan');
+
+
+const userRoutes = require('./routes/user');
+const favoritesRoutes = require('./routes/books/favorites');
+const configRoutes = require('./routes/config');
 
 const app = express();
 app.use(express.json());
@@ -23,6 +27,8 @@ app.use(function(req, res, next) {
 });
 
 app.use('/api/user', userRoutes);
+app.use('/api/config', configRoutes);
+app.use('/api/books/favorites', favoritesRoutes);
 
 app.all('*', (req, res, next) => {
     res.status(404);

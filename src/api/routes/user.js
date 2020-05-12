@@ -51,7 +51,7 @@ router.post('/logout', (req, res) => {
         })
 });
 
-router.get('/profile', auth, (req, res) => {
+router.get('/account', auth, (req, res) => {
     res.send({
         profile: req.user
     })

@@ -10,6 +10,8 @@ const databaseCredentials = {
     connectionLimit: 10,
 };
 
+// console.log(databaseCredentials);
+
 const pool = mysql.createPool(databaseCredentials);
 pool.on('connection', function (connection) {
     console.log('A new connection %d is made', connection.threadId)
