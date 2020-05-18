@@ -10,7 +10,7 @@ const {userModelStub} = require('../stubs');
 const userService = require('../../src/services/user');
 const errors = require('../../src/errors');
 
-describe("services user service", () => {
+describe("services USER service", () => {
 
     let usermodelstub;
     let refreshToken='';

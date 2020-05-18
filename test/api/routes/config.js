@@ -21,7 +21,7 @@ describe("api-routes-config", () => {
         testServer.close();
     });
 
-    it("/api/config route is available", function (done) {
+    it("/api/config GET route is available", function (done) {
 
         testServer
             .get('/api/config')

@@ -8,13 +8,14 @@ require('dotenv').config();
 const configService = require('../../src/services/config');
 
 
-describe("services config service", () => {
+describe("services CONFIG service", () => {
 
     it("getData success", function (done) {
 
         configService.getData()
             .then(result => {
                 expect(result.response).to.have.property("ts");
+                expect(result.response).to.have.property("server2clientErrors");
                 done();
             })
     });

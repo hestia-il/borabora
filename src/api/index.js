@@ -6,7 +6,7 @@ const morgan = require('morgan');
 
 
 const userRoutes = require('./routes/user');
-const favoritesRoutes = require('./routes/books/favorites');
+const booksRoutes = require('./routes/books');
 const configRoutes = require('./routes/config');
 
 const app = express();
@@ -28,7 +28,8 @@ app.use(function(req, res, next) {
 
 app.use('/api/user', userRoutes);
 app.use('/api/config', configRoutes);
-app.use('/api/books/favorites', favoritesRoutes);
+// app.use('/api/books/favorites', favoritesRoutes);
+app.use('/api/books', booksRoutes);
 
 app.all('*', (req, res, next) => {
     res.status(404);

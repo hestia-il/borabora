@@ -25,7 +25,7 @@ describe("api-routes-user", () => {
         usermodelstub.restore();
     });
 
-    it("/api/user/signup route is available", function (done) {
+    it("/api/user/signup POST route is available", function (done) {
         usermodelstub.create.resolves({
             id: mockData.userData.id,
             username:  mockData.userData.username,
@@ -46,7 +46,7 @@ describe("api-routes-user", () => {
             })
     });
 
-    it("/api/user/signin route is available", function (done) {
+    it("/api/user/signin POST route is available", function (done) {
         usermodelstub.fetch.resolves({
             id: mockData.userData.id,
             username:  mockData.userData.username,
